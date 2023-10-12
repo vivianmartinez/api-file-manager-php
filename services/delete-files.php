@@ -8,7 +8,7 @@ header("Content-Type: application/json");
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
     
     $response = [
-        'status'=> 'failed',
+        'status'=> 500,
         'error' => 'Something bad happened, please contact to support'
         ];
 
@@ -21,12 +21,12 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
                 if($delete){
                     $response =[
-                        'status'=> 'ok'
+                        'status'=> 200
                     ];
                 }
             }else{
                 $response =[
-                    'status'=> 'failed',
+                    'status'=> 404,
                     'error' => 'The file doesn\'t exists'
                 ];
             }
@@ -34,8 +34,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         
     }else{
         $response =[
-            'status'=> 'failed',
-            'error' => 'Please specify the route and file name you want to delete'
+            'status'=> 400,
+            'error' => 'Please specify the route and name of file you want to delete.'
         ];
     }
     echo json_encode($response);

@@ -7,7 +7,7 @@ header("Content-Type: application/json");
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     $response = [
-        'status'=> 'failed',
+        'status'=> 500,
         'error' => 'Something bad happened, please contact to support'
         ];
 
@@ -21,33 +21,33 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                     $rename = rename('../'.$_GET['route'].'/'.$_GET['old_name'],'../'.$_GET['route'].'/'.$_GET['rename']);
                     if($rename){
                         $response =[
-                            'status'=> 'ok'
+                            'status'=> 200
                         ];
                 
                     }else{
                         $response =[
-                            'status'=> 'failed',
+                            'status'=> 500,
                             'error' => 'Can\'t rename the file'
                         ];
                     }
                 }else{
                     $response =[
-                        'status'=> 'failed',
+                        'status'=> 404,
                         'error' => '¡The file already exists!'
                     ];
                 }
 
             }else{
                 $response =[
-                    'status'=> 'failed',
+                    'status'=> 404,
                     'error' => 'The file doesn\'t exists'
                 ];
             }
         }
     }else{
         $response =[
-            'status'=> 'failed',
-            'error' => 'Please specify the route and file name you want to rename'
+            'status'=> 400,
+            'error' => 'Please specify the route, old name and new name of file you want to rename'
         ];
     }
     echo json_encode($response);
