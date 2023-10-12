@@ -33,12 +33,10 @@ url_api/services/delete-files.php?route=files/folder-01&name_file=filename
 //Upload file
 url_api/services/save-files.php
 
-//Request Body PHP CURL
-array('route' => $route,
-      'file'  => new CURLFile ( $file ));
+//Request Body form-data
+[
+  'route' => name_route,
+  'file'  => file // type file
+] 
 
-//Request Body JavaScript
-const formData = new FormData();
-formData.append('route', name_route);
-formData.append('file', file); 
 ```
