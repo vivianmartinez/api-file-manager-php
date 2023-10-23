@@ -1,5 +1,5 @@
 # API File manager PHP
-API created in PHP - File manager  (read, rename, upload, rename)
+API created in PHP - File manager  (read, rename, upload, delete)
 
 API created to use it in the [Angular Admin Files project][1].
 
